@@ -12,6 +12,7 @@ btn.addEventListener('click', function() {
 })
 */
 
+/*
 import counter from './counter'
 import number from './number'
 
@@ -26,3 +27,15 @@ if (module.hot) {
     number()
   })
 }
+*/
+
+import '@babel/polyfill'
+
+const arr = [
+  new Promise(() => {}),
+  new Promise(() => {})
+]
+
+arr.map(item => {
+  console.log(item)
+})
