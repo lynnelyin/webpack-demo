@@ -29,6 +29,7 @@ if (module.hot) {
 }
 */
 
+/*
 import '@babel/polyfill'
 
 const arr = [
@@ -39,3 +40,17 @@ const arr = [
 arr.map(item => {
   console.log(item)
 })
+*/
+
+import '@babel/polyfill'
+import React, {Component} from 'react'
+import ReactDom from 'react-dom'
+
+class App extends Component {
+  render() {
+    return <div>Hello World</div>
+  }
+}
+
+ReactDom.render(<App />, document.getElementById('root'))
+
