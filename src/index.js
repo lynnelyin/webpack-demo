@@ -42,6 +42,7 @@ arr.map(item => {
 })
 */
 
+/*
 import '@babel/polyfill'
 import React, {Component} from 'react'
 import ReactDom from 'react-dom'
@@ -53,4 +54,8 @@ class App extends Component {
 }
 
 ReactDom.render(<App />, document.getElementById('root'))
+*/
 
+import {add} from './math'
+
+add(1, 2)
