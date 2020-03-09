@@ -78,9 +78,18 @@ add(1, 4)
 //   })
 // })
 
+/*
+import _ from 'lodash'
+import $ from 'jquery'
+import {ui} from './jquery.ui'
 
-import './style.css'
-import './style1.css'
+ui()
 
+const dom = $('<div>')
+dom.html(_.join(['have', 'a', 'sweet', 'dream'], ' '))
+$('body').append(dom)
+*/
+
+console.log(this == window)
 
 
