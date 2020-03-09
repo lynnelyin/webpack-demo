@@ -61,19 +61,19 @@ import {add} from './math'
 add(1, 4)
 */
 
-import _ from 'lodash'
 
-function getComponent() {
-  return import(/* webpackChunkName: "lodash" */'lodash').then(({default: _}) => {
-    var element = document.createElement('div')
-    element.innerHTML = _.join(['a', 'nice', 'day'], ' ')
-    return element
+// async function getComponent() {
+//   const {default: _} = await import(/* webpackChunkName: "lodash" */'lodash')
+ 
+//   const element = document.createElement('div')
+//   element.innerHTML = _.join(['a', 'nice', 'day'], ' ')
+//   return element
+// }
+
+document.addEventListener('click', () => {
+  // then 的参数是 Module 对象
+  import(/* webpackPrefetch: true */ './click').then(({default: func}) => {
+    func()
   })
-}
-
-getComponent().then(element => {
-  document.body.appendChild(element)
 })
 
-// import test from './test'
-// console.log(test)
