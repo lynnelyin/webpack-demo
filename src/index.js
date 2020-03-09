@@ -70,10 +70,17 @@ add(1, 4)
 //   return element
 // }
 
-document.addEventListener('click', () => {
-  // then 的参数是 Module 对象
-  import(/* webpackPrefetch: true */ './click').then(({default: func}) => {
-    func()
-  })
-})
+
+// document.addEventListener('click', () => {
+//   // then 的参数是 Module 对象
+//   import(/* webpackPrefetch: true */ './click').then(({default: func}) => {
+//     func()
+//   })
+// })
+
+
+import './style.css'
+import './style1.css'
+
+
 

@@ -14,7 +14,7 @@ module.exports = {
         loader: "babel-loader"
       },
       {
-        test: /\.jpg$/,
+        test: /\.(jpg|png|jpeg)$/,
         use: {
           loader: 'url-loader',
           options: {
@@ -32,31 +32,6 @@ module.exports = {
         use: {
           loader: 'file-loader'
         }
-      },
-      {
-        test: /\.css/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'postcss-loader'
-        ]
-      },
-      {
-        test: /\.scss/,
-        use: [
-          'style-loader', 
-          {
-            loader: 'css-loader',
-            options: {
-              // 在 index.scss 文件里通过@引入其他 scss 文件要经过多少个 loader
-              importLoaders: 2,
-              // // 开启 css 模块化
-              // modules: true
-            }
-          },
-          'sass-loader', 
-          'postcss-loader'
-        ]
       }
     ]
   },
@@ -67,12 +42,14 @@ module.exports = {
     new CleanWebpackPlugin()
   ],
   optimization: {
+    usedExports: true,
     splitChunks: {
       chunks: "all"
     }
   },
   output: {
     filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
     path: path.resolve(__dirname, '../dist')
   }
 }
