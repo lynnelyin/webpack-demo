@@ -55,7 +55,25 @@ class App extends Component {
 
 ReactDom.render(<App />, document.getElementById('root'))
 */
-
+/*
 import {add} from './math'
 
-add(1, 2)
+add(1, 4)
+*/
+
+import _ from 'lodash'
+
+function getComponent() {
+  return import(/* webpackChunkName: "lodash" */'lodash').then(({default: _}) => {
+    var element = document.createElement('div')
+    element.innerHTML = _.join(['a', 'nice', 'day'], ' ')
+    return element
+  })
+}
+
+getComponent().then(element => {
+  document.body.appendChild(element)
+})
+
+// import test from './test'
+// console.log(test)

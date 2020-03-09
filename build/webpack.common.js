@@ -1,18 +1,10 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
-const webpack = require('webpack')
 
 module.exports = {
-  mode: "development",
-  devtool: 'cheap-module-eval-source-map',
   entry: {
     main: './src/index.js'
-  },
-  devServer: {
-    contentBase: './dist',
-    hot: true,
-    hotOnly: true
   },
   module: {
     rules: [
@@ -69,17 +61,36 @@ module.exports = {
     ]
   },
   plugins: [
-            new HtmlWebpackPlugin({
-              template: 'src/index.html'
-            }), 
-            new CleanWebpackPlugin(),
-            new webpack.HotModuleReplacementPlugin()
-          ],
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    }), 
+    new CleanWebpackPlugin()
+  ],
   optimization: {
-    usedExports: true
+    splitChunks: {
+      chunks: "all",
+      minSize: 30000,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+          vendors: {
+              test: /[\\/]node_modules[\\/]/,
+              priority: -10,
+              filename: 'vendor.js'
+          },
+      default: {
+              priority: -20,
+              reuseExistingChunk: true,
+              filename: 'common.js'
+          }
+      }
+    }
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, '../dist')
   }
 }
