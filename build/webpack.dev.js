@@ -9,9 +9,27 @@ const devConfig = {
     contentBase: './dist',
     hot: true,
     //hotOnly: true
+    historyApiFallback: true,
+    overlay: true,
+    /*
+    proxy: {
+      '/react/api': {
+        target: 'http://www.dell-lee.com',
+        pathRewrite: {
+          'header.json': 'demo.json'
+        },
+        changeOrigin: true
+      }
+    }
+    */
   },
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader', 'eslint-loader']
+      },
       {
         test: /\.css/,
         use: [
