@@ -15,9 +15,6 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader'
-          },
-          {
-            loader: 'imports-loader?this=>window'
           }
         ]
       },
@@ -47,11 +44,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }), 
-    new CleanWebpackPlugin(),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      _join: ['lodash', 'join']
-    })
+    new CleanWebpackPlugin()
   ],
   optimization: {
     usedExports: true,

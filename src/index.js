@@ -90,6 +90,18 @@ dom.html(_.join(['have', 'a', 'sweet', 'dream'], ' '))
 $('body').append(dom)
 */
 
-console.log(this == window)
+console.log('hello world')
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+              .then(registration => {
+                console.log('service worker registed')
+              })
+              .catch(err => {
+                console.log('service worker register error')
+              })
+  }) 
+}
 
 
