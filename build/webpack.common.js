@@ -8,7 +8,7 @@ const fs = require('fs')
 const plugins = [
   new HtmlWebpackPlugin({
     template: 'src/index.html'
-  }), 
+  }),
   new CleanWebpackPlugin()
 ]
 const files = fs.readdirSync(path.resolve(__dirname, '../dll'))
@@ -64,6 +64,7 @@ module.exports = {
   },
   plugins,
   optimization: {
+    runtimeChunk: 'single',
     usedExports: true,
     splitChunks: {
       chunks: "all",

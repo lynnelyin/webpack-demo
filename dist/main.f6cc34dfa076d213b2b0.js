@@ -1,3 +1,31 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0],[
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(1))(0);
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+module.exports = react;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(1))(8);
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /*
 import './style.css'
 
@@ -77,17 +105,12 @@ import {add} from './math'
 
 add(1, 4)
 */
-
-
 // async function getComponent() {
 //   const {default: _} = await import(/* webpackChunkName: "lodash" */'lodash')
- 
 //   const element = document.createElement('div')
 //   element.innerHTML = _.join(['a', 'nice', 'day'], ' ')
 //   return element
 // }
-
-
 // document.addEventListener('click', () => {
 //   // then 的参数是 Module 对象
 //   import(/* webpackPrefetch: true */ './click').then(({default: func}) => {
@@ -123,18 +146,17 @@ if ('serviceWorker' in navigator) {
 }
 */
 
-import React, {Component} from 'react'
-import ReactDom from 'react-dom'
 
-class App extends Component {
+
+class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   render() {
-    return (
-      <div>
-        <div>Home Page</div>
-      </div>
-    )
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Home Page"));
   }
+
 }
 
-ReactDom.render(<App />, document.getElementById('root'))
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById('root'));
 
+/***/ })
+],[[3,1]]]);
+//# sourceMappingURL=main.f6cc34dfa076d213b2b0.js.map

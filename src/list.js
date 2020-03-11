@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import ReactDom from 'react-dom'
 
 class List extends Component {
   render() {
@@ -6,4 +7,4 @@ class List extends Component {
   }
 }
 
-export default List
+ReactDom.render(<List />, document.getElementById('root'))
