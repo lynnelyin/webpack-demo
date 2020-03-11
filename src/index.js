@@ -42,6 +42,7 @@ arr.map(item => {
 })
 */
 
+/*
 import React, {Component} from 'react'
 import ReactDom from 'react-dom'
 // import axios from 'axios'
@@ -69,6 +70,7 @@ class App extends Component {
 }
 
 ReactDom.render(<App />, document.getElementById('root'))
+*/
 
 /*
 import {add} from './math'
@@ -121,4 +123,20 @@ if ('serviceWorker' in navigator) {
 }
 */
 
+import React, {Component} from 'react'
+import ReactDom from 'react-dom'
+import Child from 'childAlias'
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <div>This is App</div>
+        <Child />
+      </div>
+    )
+  }
+}
+
+ReactDom.render(<App />, document.getElementById('root'))
 

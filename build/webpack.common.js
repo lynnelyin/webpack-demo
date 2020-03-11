@@ -7,8 +7,19 @@ module.exports = {
   entry: {
     main: './src/index.js'
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    alias: {
+      childAlias: path.resolve(__dirname, '../src/child')
+    }
+  },
   module: {
     rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      },
       {
         test: /\.(jpg|png|jpeg)$/,
         use: {
