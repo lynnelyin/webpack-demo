@@ -1,17 +1,37 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin')
 const webpack = require('webpack')
+const fs = require('fs')
+
+const plugins = [
+  new HtmlWebpackPlugin({
+    template: 'src/index.html'
+  }), 
+  new CleanWebpackPlugin()
+]
+const files = fs.readdirSync(path.resolve(__dirname, '../dll'))
+files.forEach(file => {
+  if (/.*\.dll\.js/.test(file)) {
+    plugins.push(new AddAssetHtmlWebpackPlugin({
+      filepath: path.resolve(__dirname, '../dll', file)
+    }))
+  }
+
+  if (/.*\.manifest\.json/.test(file)) {
+    plugins.push(new webpack.DllReferencePlugin({
+      manifest: path.resolve(__dirname, '../dll', file)
+    }))
+  }
+})
 
 module.exports = {
   entry: {
     main: './src/index.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
-    alias: {
-      childAlias: path.resolve(__dirname, '../src/child')
-    }
+    extensions: ['.js', '.jsx']
   },
   module: {
     rules: [
@@ -42,12 +62,7 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'src/index.html'
-    }), 
-    new CleanWebpackPlugin()
-  ],
+  plugins,
   optimization: {
     usedExports: true,
     splitChunks: {
